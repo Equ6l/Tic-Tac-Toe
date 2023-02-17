@@ -16,6 +16,10 @@ function reset() {
   }
 }
 
+function log(message) {
+  logger.innerHTML = message;
+}
+
 // DISPLAY CELL CASE
 function display() {
   for (let i = 0; i < cell.length; i++) {
@@ -59,7 +63,7 @@ function checkStatus() {
         database[c + 1] == XorO &&
         database[c + 2] == XorO
       ) {
-        logger.textContent = `Player ${XorO} wins !`;
+        log(`<b>Player ${XorO}</b> wins !`);
         gameEnd = true;
         highlight(c, [c + 1], [c + 2]);
         // console.log(c);
@@ -72,7 +76,7 @@ function checkStatus() {
         database[l + 3] == XorO &&
         database[l + 6] == XorO
       ) {
-        logger.textContent = `Player ${XorO} wins !`;
+        log(`<b>Player ${XorO}</b> wins !`);
         gameEnd = true;
         highlight(l, [l + 3], [l + 6]);
         // console.log(l);
@@ -80,7 +84,7 @@ function checkStatus() {
     }
     // DIAGONALS
     if (database[0] == XorO && database[4] == XorO && database[8] == XorO) {
-      logger.textContent = `Player ${XorO} wins !`;
+      log(`<b>Player ${XorO}</b> wins !`);
       gameEnd = true;
       highlight([0], [4], [8]);
     } else if (
@@ -88,10 +92,13 @@ function checkStatus() {
       database[4] == XorO &&
       database[6] == XorO
     ) {
-      logger.textContent = `Player ${XorO} wins !`;
+      log(`<b>Player ${XorO}</b> wins !`);
       gameEnd = true;
       highlight([2], [4], [6]);
     }
+  }
+  if (!gameEnd && database.indexOf("") == -1) {
+    log("Tied ! Restart ?");
   }
 }
 
