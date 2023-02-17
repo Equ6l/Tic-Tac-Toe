@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  color: #f2ebd3;
+}
+
+body {
+  background-color: #14bdac;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GRID */
+
+#grid {
+  margin-top: 1em;
+  height: 400px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#logger p {
+  margin: 2em 0;
+}
+
+.cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 12px solid#0DA192;
+  border-right: 12px solid #0da192;
+  font-size: 80px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+.cell:nth-child(3n) {
+  border-right: none;
+}
+.cell:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+.cell.highlight {
+  z-index: -1;
+  transition: background-color 1s;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cell.otherColor {
+  color: #545454;
+}
+
+button {
+  font-size: 16px;
+  margin-top: 3em;
+  width: 120px;
+  height: 50px;
+  border-radius: 2em;
+  cursor: pointer;
+  background: #0da192;
+  border: none;
+}
+
+@media screen and (max-width: 425px) {
+  #grid {
+    width: 270px;
+    height: 270px;
+  }
+  .cell {
+    font-size: 50px;
+    border-bottom: 8px solid#0DA192;
+    border-right: 8px solid #0da192;
+  }
+}
